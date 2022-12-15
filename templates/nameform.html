@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>{{page_title}}</title>
+</head>
+<style>
+	.header{
+		text-align: center;
+		font-family: sans-serif;
+		font-size:50px;
+		color: salmon;
+	}
+
+	.formtitle{
+		text-align: center
+	}
+	.form{
+		text-align: center
+	}
+
+
+	</style>
+<body>
+<h1 class="header">
+	Summoner's Library of Champions
+</h1>
+<form action="/response" method="get" class="form">
+	<label for="summonername" style="font-size: 1.5em; margin-top: 20px; margin-bottom: 0px">Please enter your Summoner Name:</label>
+	<input type="text" id="summonername" name="summonername" style ="padding: 10px 20px; text-align: center" /><br />
+	<input type="submit" value="Search" name="fobtn" style="height:30px; width:100px; background-color:#F7DE40; margin-top: 20px; margin-bottom: 0px"/></form>
+{% if prompt %}
+<div  class='formtitle'>{{prompt}}</div>
+{% endif %}
+</body>
+</html>

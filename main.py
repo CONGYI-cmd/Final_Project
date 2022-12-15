@@ -1,16 +1,22 @@
-# This is a sample Python script.
+# from flask import Flask, render_template, request
+# import logging
+#
+# app = Flask(__name__, template_folder='templates')
+# @app.route("/")
+# def main_handler():
+#
+#     return render_template('nameform.html',page_title = "Champion Search")
+#
+# @app.route("/response")
+# def response_handler():
+#     summoner_name = request.args.get('summonername')
+#     app.logger.info(summoner_name)
+#     if summoner_name :
+#         return render_template('nameresponse.html', len = 3, champ_name_list = ["1", "2", "3"])
+#     else:
+#         return render_template('nameform.html', page_title="Name Form - Error", prompt = "Wrong Summoner Name!")
+#
+#
+# if __name__ == "__main__":
+#     app.run(host="localhost", port=8080, debug = True)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title>{{page_title}}</title>
+</head>
+<style>
+	.header{
+		text-align: center;
+		font-family: sans-serif;
+		font-size:50px;
+		color: salmon;
+
+
+	}
+
+	.form{
+		text-align: center
+	}
+
+
+	.content-table {
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+	.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+	.content-table th,
+	.content-table td {
+    padding: 12px 15px;
+}
+	.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+</style>
+<body>
+<h1 class="header">
+	Summoner's Library of Champions
+</h1>
+<form action="/response" method="get" class="form">
+	<label for="summonername" style="font-size: 1.5em; margin-top: 20px; margin-bottom: 0px">Please enter your Summoner Name:</label>
+	<input type="text" id="summonername" name="summonername" style ="padding: 10px 20px; text-align: center" /><br />
+	<input type="submit" value="Search" name="fobtn" style="height:30px; width:100px; background-color:#F7DE40; margin-top: 20px; margin-bottom: 0px"/></form>
+
+{% if prompt %}
+<div  class='formtitle'>{{prompt}}</div>
+{% endif %}
+
+<table style="width:100%" class="content-table">
+	<tr>
+		{%for i in file_key%}
+		<th>{{i}}</th>
+		{%endfor%}
+	</tr>
+
+	{%for x in file%}
+		<tr>
+			{%for y in keyList%}
+				<td>{{x.get(y)}}</td>
+			{%endfor%}
+			{% set champion = x.get("championId") %}
+			{% set baseurl = baseurl %}
+			<td><a href={{baseurl+x.get('championId','notfound')}}>{{x.get("championId")}}'s Champion Story</a> </td>
+
+		</tr>
+	{%endfor%}
+
+</table>
+</body>
+</html>
